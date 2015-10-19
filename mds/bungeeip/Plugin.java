@@ -13,16 +13,20 @@ public class Plugin extends JavaPlugin {
 	
 	@Override
 	public void onEnable(){
+		//Save the default config file to disk and reload
 		this.saveDefaultConfig();
 		this.reloadConfig();
 
+		// Register PlayerLoginEvent event
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 		
+		//Setting bungeeip executor 
 		getCommand("bungeeip").setExecutor(new BungeeCommand());
 		
 		reload();
 	}
 	
+	// Reload method
 	private void reload() {
 		this.bungeeip = parseIP(this.getConfig().getString("whitelist-ip", "127.0.0.1"));
 		this.kickMessage = ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("kick-message", "&4Direct access is not allowed! Please join using the Hub server."));
@@ -38,10 +42,12 @@ public class Plugin extends JavaPlugin {
 		plugin = this;
 	}
 	
+	// Returns the plugin
 	public static Plugin getPlugin() {
 		return plugin;
 	}
 	
+	// Returns BungeeCord IP
 	public String getBungeeIP(){
 		return bungeeip;
 	}
@@ -53,6 +59,7 @@ public class Plugin extends JavaPlugin {
 		return ip;
 	}
 	
+	//Sets BungeeIP and save it to config file
 	public void setBungeeIP(String ip) {
 		this.bungeeip =  parseIP(ip);
 		getConfig().set("whitelist-ip", this.bungeeip);

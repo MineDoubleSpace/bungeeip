@@ -11,6 +11,9 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void onPlayerLogin(PlayerLoginEvent event) {
 		String ipaddress = event.getRealAddress().getHostAddress();
+		/* Check if whitelisted IP addreess match the real player IP address.
+		 * Kick player if IP does not match.
+		 * */
 		if (!ipaddress.equalsIgnoreCase(Plugin.getPlugin().getBungeeIP())) {
 			event.setKickMessage(Plugin.getPlugin().getKickMessage());
 			event.setResult(PlayerLoginEvent.Result.KICK_WHITELIST);
