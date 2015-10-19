@@ -46,6 +46,7 @@ public class Plugin extends JavaPlugin {
 		return bungeeip;
 	}
 	
+	
 	public void setBungeeIP(String ip) {
 		this.bungeeip = ip;
 		getConfig().set("whitelist-ip", ip);
