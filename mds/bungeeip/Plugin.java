@@ -2,6 +2,8 @@ package mds.bungeeip;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.md_5.bungee.api.ChatColor;
+
 public class Plugin extends JavaPlugin {
 	
 	private static Plugin plugin;
@@ -20,7 +22,7 @@ public class Plugin extends JavaPlugin {
 	
 	private void reload() {
 		this.bungeeip = this.getConfig().getString("whitelist-ip", "127.0.0.2");
-		this.kickMessage = this.getConfig().getString("kick-message", "&4Direct access is not allowed! Please join using the Hub server.");
+		this.kickMessage = ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("kick-message", "&4Direct access is not allowed! Please join using the Hub server."));
 		
 	}
 	
