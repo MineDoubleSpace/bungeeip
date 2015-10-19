@@ -12,6 +12,8 @@ public class Plugin extends JavaPlugin {
 	public void onEnable(){
 		this.saveDefaultConfig();
 		this.reloadConfig();
+
+		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 		
 		reload();
 	}
