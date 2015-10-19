@@ -1,0 +1,6 @@
+name: BungeeIP
+main: mds.bungeeip.Plugin
+version: 1.0
+commands:
+    bungeeip:
+        description: Change Bungee Whitelist Ip

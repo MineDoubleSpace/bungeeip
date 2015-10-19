@@ -12,8 +12,17 @@ public class Plugin extends JavaPlugin {
 	public void onEnable(){
 		this.saveDefaultConfig();
 		this.reloadConfig();
+		
+		reload();
 	}
 	
+	private void reload() {
+		this.bungeeip = this.getConfig().getString("whitelist-ip", "127.0.0.2");
+		this.kickMessage = this.getConfig().getString("kick-message", "&4Direct access is not allowed! Please join using the Hub server.");
+		
+	}
+	
+	@Override
 	public void onDisable(){
 		super.onDisable();
 	}
