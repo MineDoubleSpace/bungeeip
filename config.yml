@@ -2,4 +2,4 @@
 whitelist-ip: 127.0.0.2
 
 #Players will receive this message if their IP address doesn't match bungeeip above
-kick-message: "&4Direct acess is not allowed! Please join using the Hub server."
+kick-message: "&4Direct access is not allowed! Please join using the Hub server."
