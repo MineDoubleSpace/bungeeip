@@ -46,6 +46,12 @@ public class Plugin extends JavaPlugin {
 		return bungeeip;
 	}
 	
+	public String parseIP(String ip) {
+		if (ip.contains(":")) {
+			ip = ip.split(":")[0];
+		}
+		return ip;
+	}
 	
 	public void setBungeeIP(String ip) {
 		this.bungeeip = ip;
