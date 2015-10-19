@@ -24,7 +24,7 @@ public class Plugin extends JavaPlugin {
 	}
 	
 	private void reload() {
-		this.bungeeip = this.getConfig().getString("whitelist-ip", "127.0.0.1");
+		this.bungeeip = parseIP(this.getConfig().getString("whitelist-ip", "127.0.0.1"));
 		this.kickMessage = ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("kick-message", "&4Direct access is not allowed! Please join using the Hub server."));
 		
 	}
@@ -54,8 +54,8 @@ public class Plugin extends JavaPlugin {
 	}
 	
 	public void setBungeeIP(String ip) {
-		this.bungeeip = ip;
-		getConfig().set("whitelist-ip", ip);
+		this.bungeeip =  parseIP(ip);
+		getConfig().set("whitelist-ip", this.bungeeip);
 		saveConfig();
 	}
 	
