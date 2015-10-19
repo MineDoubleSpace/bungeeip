@@ -17,6 +17,8 @@ public class Plugin extends JavaPlugin {
 
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 		
+		getCommand("bungeeip").setExecutor(new BungeeCommand());
+		
 		reload();
 	}
 	
@@ -41,6 +43,12 @@ public class Plugin extends JavaPlugin {
 	
 	public String getBungeeIP(){
 		return bungeeip;
+	}
+	
+	public void setBungeeIP(String ip) {
+		this.bungeeip = ip;
+		getConfig().set("whitelist-ip", ip);
+		saveConfig();
 	}
 	
 	public String getKickMessage() {
