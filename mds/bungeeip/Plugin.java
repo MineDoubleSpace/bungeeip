@@ -1,8 +1,9 @@
 package mds.bungeeip;
 
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.md_5.bungee.api.ChatColor;
+
 
 public class Plugin extends JavaPlugin {
 	
