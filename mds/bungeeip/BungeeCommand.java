@@ -27,6 +27,13 @@ public class BungeeCommand implements CommandExecutor {
 			return true;
 		}
 		
+		if (args[0].equalsIgnoreCase("reload")) {
+			Plugin.getPlugin().reloadConfig();
+			Plugin.getPlugin().reload();
+			sender.sendMessage(ChatColor.GREEN + "Reloaded config.");
+			return true;
+		}
+		
 		Plugin.getPlugin().setBungeeIP(args[0]);
 		sender.sendMessage(ChatColor.GREEN + "Updated whitelist IP to " + args[0]);
 		return true;
