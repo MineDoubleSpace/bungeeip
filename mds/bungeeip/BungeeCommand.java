@@ -18,8 +18,10 @@ public class BungeeCommand implements CommandExecutor {
 				return false;
 			}
 		}
-		if (args.length < 0) {
-			sender.sendMessage(ChatColor.DARK_RED + "Please use /bungeeip <ip address|ip>");
+		System.out.println(args.length);
+		if (args.length < 1) {
+			sender.sendMessage(ChatColor.DARK_RED + "Please use /bungeeip <ip address|ip|reload>");
+			return true;
 		}
 		
 		if (args[0].equalsIgnoreCase("ip")) {
@@ -35,7 +37,7 @@ public class BungeeCommand implements CommandExecutor {
 		}
 		
 		Plugin.getPlugin().setBungeeIP(args[0]);
-		sender.sendMessage(ChatColor.GREEN + "Updated whitelist IP to " + args[0]);
+		sender.sendMessage(ChatColor.GREEN + "Updated whitelist IP to " + Plugin.getPlugin());
 		return true;
 	}
 
